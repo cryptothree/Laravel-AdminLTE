@@ -12,7 +12,10 @@
   "autoload": {
     "psr-4": {
       "JeroenNoten\\LaravelAdminLte\\": "src/"
-    }
+    },
+    "files": [
+      "src/helpers.php"
+    ]
   },
   "autoload-dev": {
     "classmap": [
@@ -30,7 +33,8 @@
   "require": {
     "laravel/framework": ">=8.0",
     "php": ">=7.3",
-    "almasaeed2010/adminlte": "3.2.*"
+    "almasaeed2010/adminlte": "3.2.*",
+    "laracasts/flash": "^3.2"
   },
   "require-dev": {
     "phpunit/phpunit": ">=9.1",

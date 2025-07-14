@@ -37,3 +37,35 @@
         });
     });
 </script>
+
+<script>
+    Noty.setMaxVisible(10);
+
+    window.noty = function () {
+        const show = function (type, message, important) {
+            new Noty({
+                type: type === 'danger' ? 'error' : type,
+                text: message,
+                timeout: important ? 0 : 6000,
+                closeWith: ['click', 'button'],
+                visibilityControl: true,
+            }).show();
+        };
+
+        return {
+            show,
+            info: (message, important) => show('info', message, important),
+            success: (message, important) => show('success', message, important),
+            warning: (message, important) => show('warning', message, important),
+            error: (message, important) => show('error', message, important),
+        };
+    };
+
+    window.FLASH_MESSAGES = @json(session()->pull('flash_notification', collect())->toArray());
+
+    $(function () {
+        FLASH_MESSAGES.forEach(notification => {
+            noty().show(notification.level, notification.message, notification.important);
+        });
+    });
+</script>

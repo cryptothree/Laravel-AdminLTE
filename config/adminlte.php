@@ -499,6 +499,21 @@ return [
                 ],
             ],
         ],
+        'Noty' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js',
+                ],
+            ],
+        ],
     ],
 
     /*
