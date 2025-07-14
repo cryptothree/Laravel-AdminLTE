@@ -1,78 +1,63 @@
-{{-- Table --}}
+@section('plugins.Datatables', true)
 
-<div class="table-responsive">
+@pushOnce('css')
+    <style>
+        .datatable-filter {
+            column-gap: 1rem;
+        }
 
-<table id="{{ $id }}" style="width:100%" {{ $attributes->merge(['class' => $makeTableClass()]) }}>
-
-    {{-- Table head --}}
-    <thead @isset($headTheme) class="thead-{{ $headTheme }}" @endisset>
-        <tr>
-            @foreach($heads as $th)
-                <th @isset($th['classes']) class="{{ $th['classes'] }}" @endisset
-                    @isset($th['width']) style="width:{{ $th['width'] }}%" @endisset
-                    @isset($th['no-export']) dt-no-export @endisset>
-                    {{ is_array($th) ? ($th['label'] ?? '') : $th }}
-                </th>
-            @endforeach
-        </tr>
-    </thead>
-
-    {{-- Table body --}}
-    <tbody>{{ $slot }}</tbody>
-
-    {{-- Table footer --}}
-    @isset($withFooter)
-        <tfoot @isset($footerTheme) class="thead-{{ $footerTheme }}" @endisset>
-            <tr>
-                @foreach($heads as $th)
-                    <th>{{ is_array($th) ? ($th['label'] ?? '') : $th }}</th>
-                @endforeach
-            </tr>
-        </tfoot>
-    @endisset
-
-</table>
-
-</div>
-
-{{-- Add plugin initialization and configuration code --}}
-
-@push('js')
-<script>
-
-    $(() => {
-        $('#{{ $id }}').DataTable( @json($config) );
-    })
-
-</script>
-@endpush
-
-{{-- Add CSS styling for beautify option --}}
-
-@isset($beautify)
-    @push('css')
-    <style type="text/css">
-        #{{ $id }} tr td,  #{{ $id }} tr th {
-            vertical-align: middle;
-            text-align: center;
+        .datatable-filter > .form-group > .input-group > .form-control {
+            width: 240px !important;
         }
     </style>
-    @endpush
+@endPushOnce
+
+@isset($filter)
+    <div class="d-flex flex-wrap datatable-filter">
+
+        {{ $filter }}
+
+        <div class="btn-group mb-3">
+            <x-adminlte-button type="button" theme="default" icon="fas fa-search" data-action="search" />
+            <x-adminlte-button type="button" theme="default" icon="fas fa-eraser" data-action="reset" />
+            <x-adminlte-button type="button" theme="default" icon="fas fa-sync-alt" data-action="refresh" />
+        </div>
+    </div>
 @endisset
 
-{{-- Improve CSS styling when using responsive extension --}}
+<div class="table-responsive">
+    {!! $dataTables[$id]->table() !!}
+</div>
 
-@if(! empty($config['responsive']))
-    @once
-    @push('css')
-    <style type="text/css">
-        .dataTable .child .dtr-details {
-            width: 100%;
-        }
-        .dataTable .child .dtr-data {
-            float: right;
-        }
-    </style>
-    @endpush
-    @endonce
-@endif
+@push('js')
+    {!! $dataTables[$id]->scripts() !!}
+@endpush
+
+@pushOnce('js')
+    <script>
+        $(function () {
+            $('.datatable-filter').on('click', 'button', function () {
+                const $filter = $(this).closest('.datatable-filter');
+                const action = $(this).data('action');
+                const selector = $filter.next('.table-responsive').find('table').attr('id');
+                const dataTable = window.LaravelDataTables[selector];
+
+                switch (action) {
+                    case 'search':
+                        $filter.find('input[data-column],select[data-column]').each(function () {
+                            dataTable.column($(this).data('column')).search($(this).val());
+                        });
+                        dataTable.draw();
+                        break;
+                    case 'reset':
+                        $filter.find('input,select').val('').trigger('change');
+                        dataTable.columns().search('').draw();
+                        break;
+                    case 'refresh':
+                        dataTable.ajax.reload(null, false);
+                        break;
+                }
+            });
+        });
+    </script>
+@endPushOnce

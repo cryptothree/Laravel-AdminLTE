@@ -32,10 +32,12 @@
   },
   "require": {
     "laravel/framework": ">=8.0",
-    "php": ">=7.3",
+    "php": ">=7.4",
     "almasaeed2010/adminlte": "3.2.*",
     "laracasts/flash": "^3.2",
-    "arcanedev/log-viewer": "^12.0@dev"
+    "arcanedev/log-viewer": "^12.0@dev",
+    "yajra/laravel-datatables-fractal": "^12.0",
+    "yajra/laravel-datatables-html": "^12.0"
   },
   "require-dev": {
     "phpunit/phpunit": ">=9.1",
