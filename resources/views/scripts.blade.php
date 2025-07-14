@@ -21,6 +21,42 @@
             $(this).closest('.form-group').find('label').append('<span class="text-danger">*</span>');
         });
 
+        // global confirmation handler for elements with data-confirmation attribute
+        $(document).on('click', '[data-confirmation]', function (e) {
+            const $el = $(this);
+            const message = $el.data('confirmation') || 'Are you sure?';
+
+            // if SweetAlert2 (Swal) is not available, fall back to native confirm.
+            if (typeof Swal === 'undefined') {
+                if (message && !confirm(message)) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                }
+
+                return;
+            }
+
+            // prevent the default action until the user confirms.
+            e.preventDefault();
+
+            Swal.fire({
+                text: message,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#28a745',
+                confirmButtonText: 'Yes',
+            }).then(result => {
+                // user cancelled
+                if (!result.isConfirmed) return;
+
+                // user confirmed -> continue original action.
+                // remove attribute to avoid infinite loops
+                $el.removeAttr('data-confirmation');
+
+                setTimeout(() => $el[0].click());
+            });
+        });
+
         // handle form submission
         $(document).on('submit', 'form', function () {
             // add hidden input for checkboxes

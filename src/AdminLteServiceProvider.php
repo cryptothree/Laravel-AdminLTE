@@ -66,6 +66,7 @@ class AdminLteServiceProvider extends BaseServiceProvider
     protected $toolComponents = [
         'datatable' => Tool\Datatable::class,
         'modal' => Tool\Modal::class,
+        'action' => Tool\Action::class,
     ];
 
     /**

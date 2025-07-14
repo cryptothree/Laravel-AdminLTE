@@ -14,6 +14,7 @@ class ToolComponentsTest extends TestCase
         return [
             "{$base}.datatable" => new Components\Tool\Datatable('id', []),
             "{$base}.modal" => new Components\Tool\Modal('id'),
+            "{$base}.action" => new Components\Tool\Action(null),
         ];
     }
 
