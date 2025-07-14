@@ -35,8 +35,7 @@
     "php": ">=7.4",
     "almasaeed2010/adminlte": "3.2.*",
     "laracasts/flash": "^3.2",
-    "arcanedev/support": "dev-develop as 12.0.0",
-    "arcanedev/log-viewer": "dev-develop as 12.0.0",
+    "cryptothree/log-viewer": "^12.0",
     "yajra/laravel-datatables-fractal": "^12.0",
     "yajra/laravel-datatables-html": "^12.0"
   },
