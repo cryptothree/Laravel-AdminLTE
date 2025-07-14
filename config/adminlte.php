@@ -392,6 +392,11 @@ return [
             'icon_color' => 'cyan',
             'url' => '#',
         ],
+        [
+            'text' => 'Logs',
+            'route' => 'log-viewer::logs.list',
+            'icon' => 'nav-icon fas fa-file-alt',
+        ],
     ],
 
     /*
@@ -581,10 +586,38 @@ return [
     |
     | Here we can enable the Livewire support.
     |
-    | For detailed instructions you can look the livewire here:
+    | For detailed instructions you can look at the livewire here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     |
     */
 
     'livewire' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Log Viewer
+    |--------------------------------------------------------------------------
+    |
+    | This is the configuration for the log viewer.
+    |
+    | For detailed instructions you can look at the log viewer here:
+    | https://github.com/ARCANEDEV/LogViewer
+    |
+    */
+
+    'log_viewer' => [
+        'theme' => 'adminlte',
+
+        'route' => [
+            'enabled' => true,
+
+            'attributes' => [
+                'prefix' => 'log-viewer',
+                'domain' => env('ARCANEDEV_LOGVIEWER_DOMAIN'),
+                'middleware' => env('ARCANEDEV_LOGVIEWER_MIDDLEWARE') ? explode(',', env('ARCANEDEV_LOGVIEWER_MIDDLEWARE')) : ['web', 'auth'],
+            ],
+
+            'show' => 'log-viewer::logs.show',
+        ],
+    ],
 ];

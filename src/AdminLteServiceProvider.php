@@ -2,6 +2,7 @@
 
 namespace JeroenNoten\LaravelAdminLte;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
@@ -107,12 +108,18 @@ class AdminLteServiceProvider extends BaseServiceProvider
     public function boot()
     {
         $this->loadViews();
+        $this->registerLogViewerViews();
         $this->loadTranslations();
         $this->loadConfig();
+        $this->syncLogViewerConfig(); // After loading AdminLTE config, override log-viewer settings (if any)
         $this->registerCommands();
         $this->registerViewComposers();
         $this->loadComponents();
         $this->loadRoutes();
+
+        // Use Bootstrap 4 styling for Laravel paginator so that log-viewer
+        // pagination matches AdminLTE/Bootstrap aesthetics.
+        Paginator::useBootstrapFour();
     }
 
     /**
@@ -124,6 +131,17 @@ class AdminLteServiceProvider extends BaseServiceProvider
     {
         $viewsPath = $this->packagePath('resources/views');
         $this->loadViewsFrom($viewsPath, $this->pkgPrefix);
+    }
+
+    /**
+     * Load the log viewer views.
+     *
+     * @return void
+     */
+    private function registerLogViewerViews(): void
+    {
+        $viewsPath = $this->packagePath('resources/views/vendor/log-viewer');
+        $this->loadViewsFrom($viewsPath, 'log-viewer');
     }
 
     /**
@@ -146,6 +164,39 @@ class AdminLteServiceProvider extends BaseServiceProvider
     {
         $configPath = $this->packagePath('config/adminlte.php');
         $this->mergeConfigFrom($configPath, $this->pkgPrefix);
+    }
+
+    /**
+     * Sync the optional "log_viewer" section defined in the AdminLTE config
+     * into the official "log-viewer" config namespace so that the
+     * arcanedev/log-viewer package can consume the overrides without
+     * requiring the host application to maintain a separate file.
+     *
+     * We use array_replace_recursive so that only keys provided by the user
+     * are overwritten, keeping the rest of log-viewer default configuration
+     * untouched.
+     *
+     * @return void
+     */
+    private function syncLogViewerConfig(): void
+    {
+        // Grab any overrides placed under "log_viewer" inside adminlte.php
+        $overrides = config('adminlte.log_viewer');
+
+        if (empty($overrides) || ! is_array($overrides)) {
+            return; // nothing to sync
+        }
+
+        // Ensure log-viewer base config is loaded first (by its provider).
+        // If it is not yet loaded, we still pull current values (empty array)
+        // so that we only overwrite targeted keys.
+        $current = config('log-viewer', []);
+
+        // Recursively replace default values with overrides.
+        $merged = array_replace_recursive($current, $overrides);
+
+        // Write back to the config repository.
+        config(['log-viewer' => $merged]);
     }
 
     /**
