@@ -35,7 +35,8 @@
     "php": ">=7.4",
     "almasaeed2010/adminlte": "3.2.*",
     "laracasts/flash": "^3.2",
-    "arcanedev/log-viewer": "^12.0@dev",
+    "arcanedev/support": "dev-develop as 12.0.0",
+    "arcanedev/log-viewer": "dev-develop as 12.0.0",
     "yajra/laravel-datatables-fractal": "^12.0",
     "yajra/laravel-datatables-html": "^12.0"
   },
@@ -43,6 +44,6 @@
     "phpunit/phpunit": ">=9.1",
     "orchestra/testbench": ">=6.0"
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true
 }
