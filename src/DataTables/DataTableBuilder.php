@@ -12,9 +12,6 @@ use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Column;
 
-/**
- * @method transform($model)
- */
 abstract class DataTableBuilder
 {
     /**
