@@ -88,7 +88,8 @@ abstract class DataTableBuilder
     {
         $route = Str::of(Request::route()->getName())
             ->finish('.index')
-            ->replaceLast('.index', '.data');
+            ->replaceLast('.index', '.data')
+            ->toString();
 
         return route($route);
     }
