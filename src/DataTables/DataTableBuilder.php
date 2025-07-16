@@ -86,7 +86,11 @@ abstract class DataTableBuilder
      */
     protected function ajaxUrl(): string
     {
-        return route(Request::route()->getName());
+        $route = Str::of(Request::route()->getName())
+            ->finish('.index')
+            ->replaceLast('.index', '.data');
+
+        return route($route);
     }
 
     /**
