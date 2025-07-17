@@ -2,6 +2,8 @@
 
 namespace JeroenNoten\LaravelAdminLte\View\Components\Form;
 
+use Illuminate\View\View;
+
 class InputSwitch extends InputGroupComponent
 {
     use Traits\OldValueSupportTrait;
@@ -13,7 +15,7 @@ class InputSwitch extends InputGroupComponent
      *
      * @var array
      */
-    public $config;
+    public array $config;
 
     /**
      * Create a new component instance.
@@ -22,9 +24,18 @@ class InputSwitch extends InputGroupComponent
      * @return void
      */
     public function __construct(
-        $name, $id = null, $label = null, $igroupSize = null, $labelClass = null,
-        $fgroupClass = null, $igroupClass = null, $disableFeedback = null,
-        $errorKey = null, $config = [], $isChecked = null,
+        $name,
+        $id = null,
+        $label = null,
+        $igroupSize = null,
+        $labelClass = null,
+        $fgroupClass = null,
+        $igroupClass = null,
+        $disableFeedback = null,
+        $errorKey = null,
+        $bsSize = null,
+        $config = [],
+        $isChecked = null,
         $enableOldSupport = null
     ) {
         parent::__construct(
@@ -33,6 +44,10 @@ class InputSwitch extends InputGroupComponent
         );
 
         $this->config = is_array($config) ? $config : [];
+
+        if (isset($bsSize) && in_array($bsSize, ['mini', 'small', 'normal', 'large'])) {
+            $this->config['size'] = $bsSize;
+        }
 
         if (isset($isChecked)) {
             $this->config['state'] = ! empty($isChecked);
@@ -47,7 +62,7 @@ class InputSwitch extends InputGroupComponent
      *
      * @return string
      */
-    public function makeInputGroupClass()
+    public function makeInputGroupClass(): string
     {
         $classes = ['input-group'];
 
@@ -72,7 +87,7 @@ class InputSwitch extends InputGroupComponent
      *
      * @return string
      */
-    public function makeItemClass()
+    public function makeItemClass(): string
     {
         $classes = [];
 
@@ -86,9 +101,9 @@ class InputSwitch extends InputGroupComponent
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
+     * @return \Illuminate\View\View
      */
-    public function render()
+    public function render(): View
     {
         return view('adminlte::components.form.input-switch');
     }
