@@ -23,6 +23,12 @@
         border: 1px solid #ced4da !important;
     }
 
+    .input-group .bootstrap-switch-handle-on,
+    .input-group .bootstrap-switch-handle-off {
+        height: 2rem !important;
+        font-size: 0.875rem !important;
+    }
+
     .form-group input[type=checkbox] {
         width: 0;
         min-height: calc(2rem + 2px);
