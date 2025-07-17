@@ -48,24 +48,24 @@
 <style type="text/css">
 
     {{-- MD (default) size setup --}}
-    /*.input-group .bootstrap-switch-handle-on,*/
-    /*.input-group .bootstrap-switch-handle-off {*/
-    /*    height: 2.25rem !important;*/
-    /*}*/
+    .input-group .bootstrap-switch-handle-on,
+    .input-group .bootstrap-switch-handle-off {
+        height: 2.25rem !important;
+    }
 
     {{-- LG size setup --}}
-    /*.input-group-lg .bootstrap-switch-handle-on,*/
-    /*.input-group-lg .bootstrap-switch-handle-off {*/
-    /*    height: 2.875rem !important;*/
-    /*    font-size: 1.25rem !important;*/
-    /*}*/
+    .input-group-lg .bootstrap-switch-handle-on,
+    .input-group-lg .bootstrap-switch-handle-off {
+        height: 2.875rem !important;
+        font-size: 1.25rem !important;
+    }
 
     {{-- SM size setup --}}
-    /*.input-group-sm .bootstrap-switch-handle-on,*/
-    /*.input-group-sm .bootstrap-switch-handle-off {*/
-    /*    height: 1.8125rem !important;*/
-    /*    font-size: .875rem !important;*/
-    /*}*/
+    .input-group-sm .bootstrap-switch-handle-on,
+    .input-group-sm .bootstrap-switch-handle-off {
+        height: 1.8125rem !important;
+        font-size: .875rem !important;
+    }
 
     {{-- Custom invalid style setup --}}
 
