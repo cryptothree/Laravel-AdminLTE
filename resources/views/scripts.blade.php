@@ -9,8 +9,6 @@
 
     // default options for BootstrapSwitch
     if (typeof $.fn.bootstrapSwitch === 'function') {
-        $.fn.bootstrapSwitch.defaults.onText = 'Yes';
-        $.fn.bootstrapSwitch.defaults.offText = 'No';
         $.fn.bootstrapSwitch.defaults.onColor = 'success';
         $.fn.bootstrapSwitch.defaults.offColor = 'danger';
     }

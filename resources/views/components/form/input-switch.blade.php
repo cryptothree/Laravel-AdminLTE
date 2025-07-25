@@ -49,22 +49,42 @@
 
     {{-- MD (default) size setup --}}
     .input-group .bootstrap-switch-handle-on,
-    .input-group .bootstrap-switch-handle-off {
-        height: 2.25rem !important;
+    .input-group .bootstrap-switch-handle-off,
+    .input-group .bootstrap-switch-label,
+    .bootstrap-switch .bootstrap-switch-handle-off,
+    .bootstrap-switch .bootstrap-switch-handle-on,
+    .bootstrap-switch .bootstrap-switch-label {
+        font-size: .875rem;
+        padding: .375rem .5rem;
     }
 
     {{-- LG size setup --}}
     .input-group-lg .bootstrap-switch-handle-on,
-    .input-group-lg .bootstrap-switch-handle-off {
-        height: 2.875rem !important;
-        font-size: 1.25rem !important;
+    .input-group-lg .bootstrap-switch-handle-off,
+    .input-group-lg .bootstrap-switch-label,
+    .bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-off,
+    .bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-on,
+    .bootstrap-switch.bootstrap-switch-large .bootstrap-switch-label {
+        font-size: 1.125rem;
+        padding: .425rem .5rem;
     }
 
     {{-- SM size setup --}}
     .input-group-sm .bootstrap-switch-handle-on,
-    .input-group-sm .bootstrap-switch-handle-off {
-        height: 1.8125rem !important;
-        font-size: .875rem !important;
+    .input-group-sm .bootstrap-switch-handle-off,
+    .input-group-sm .bootstrap-switch-label,
+    .bootstrap-switch.bootstrap-switch-small .bootstrap-switch-handle-off,
+    .bootstrap-switch.bootstrap-switch-small .bootstrap-switch-handle-on,
+    .bootstrap-switch.bootstrap-switch-small .bootstrap-switch-label {
+        font-size: .825rem;
+        padding: .2rem .4rem;
+    }
+
+    {{-- Mini size setup --}}
+    .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-off,
+    .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-on,
+    .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-label {
+        font-size: .65rem;
     }
 
     {{-- Custom invalid style setup --}}
@@ -72,7 +92,7 @@
     .adminlte-invalid-iswgroup > .bootstrap-switch-wrapper,
     .adminlte-invalid-iswgroup > .input-group-prepend > *,
     .adminlte-invalid-iswgroup > .input-group-append > * {
-        box-shadow: 0 .25rem 0.5rem rgba(255,0,0,.25);
+        box-shadow: 0 .25rem 0.5rem rgba(255, 0, 0, .25);
     }
 
 </style>
