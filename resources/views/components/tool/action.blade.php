@@ -10,7 +10,8 @@
         @endisset
     </a>
 @else
-    <form class="d-inline-block mr-2" action="{{ $action }}" method="{{ $method }}">
+    <form action="{{ $action }}" method="{{ $method }}"
+        {{ $attributes->merge(['class' => 'd-inline-block mr-2']) }}>
         @csrf
         <x-adminlte-button label="{{ $label ?? '' }}"
                            type="submit"
