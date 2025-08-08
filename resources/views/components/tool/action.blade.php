@@ -10,7 +10,7 @@
         @endisset
     </a>
 @else
-    <form class="d-inline-block ml-2" action="{{ $action }}" method="{{ $method }}">
+    <form class="d-inline-block mr-2" action="{{ $action }}" method="{{ $method }}">
         @csrf
         <x-adminlte-button label="{{ $label ?? '' }}"
                            type="submit"
