@@ -15,7 +15,7 @@
         @csrf
         <x-adminlte-button label="{{ $label ?? '' }}"
                            type="submit"
-                           theme="outline-{{ $theme }}"
+                           :theme="$theme"
                            class="btn-xs {{ isset($label) ? 'px-2' : '' }}"
                            icon="{{ isset($icon) ? $icon.' fa-fw' : '' }}"
                            :data-confirmation="$confirmation" />
