@@ -13,9 +13,9 @@
     <form action="{{ $action }}" method="{{ $method }}"
         {{ $attributes->merge(['class' => 'd-inline-block mr-2']) }}>
         @csrf
-        <x-adminlte-button label="{{ $label ?? '' }}"
+        <x-adminlte-button :label="$label"
                            type="submit"
-                           theme="outline-{{ $theme }}"
+                           :theme="$theme"
                            class="btn-xs {{ isset($label) ? 'px-2' : '' }}"
                            icon="{{ isset($icon) ? $icon.' fa-fw' : '' }}"
                            :data-confirmation="$confirmation" />
