@@ -395,7 +395,7 @@ return [
         [
             'text' => 'Logs',
             'route' => 'log-viewer::logs.list',
-            'icon' => 'nav-icon fas fa-file-alt',
+            'icon' => 'fas fa-file-alt',
         ],
     ],
 
