@@ -27,4 +27,8 @@
         width: 0;
         min-height: calc(2rem + 2px);
     }
+
+    .card > .card-header > .card-tools {
+        margin: 0 0 0 -.625rem;
+    }
 </style>
