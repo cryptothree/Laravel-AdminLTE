@@ -30,7 +30,7 @@
 
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <span class="fas fa-envelope {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                    <span class="fa-solid fa-envelope {{ config('adminlte.classes_auth_icon', '') }}"></span>
                 </div>
             </div>
 
@@ -43,7 +43,7 @@
 
         {{-- Send reset link button --}}
         <button type="submit" class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
-            <span class="fas fa-share-square"></span>
+            <span class="fa-solid fa-share-from-square"></span>
             {{ __('adminlte::adminlte.send_password_reset_link') }}
         </button>
     </form>

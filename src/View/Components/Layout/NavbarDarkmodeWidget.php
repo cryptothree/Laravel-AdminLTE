@@ -12,14 +12,14 @@ class NavbarDarkmodeWidget extends Component
      *
      * @var string
      */
-    public $iconDisabled = 'far fa-moon';
+    public $iconDisabled = 'fa-regular fa-moon';
 
     /**
      * The Font Awesome icon to use when dark mode is enabled.
      *
      * @var string
      */
-    public $iconEnabled = 'fas fa-moon';
+    public $iconEnabled = 'fa-solid fa-moon';
 
     /**
      * The AdminLTE color to use for the icon when dark mode is disabled.

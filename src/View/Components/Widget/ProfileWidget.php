@@ -81,7 +81,7 @@ class ProfileWidget extends Component
     public function __construct(
         $name = null, $desc = null, $img = null, $theme = null, $cover = null,
         $headerClass = null, $footerClass = null, $layoutType = 'modern',
-        $icon = 'fas fa-user'
+        $icon = 'fa-solid fa-user'
     ) {
         $this->name = UtilsHelper::applyHtmlEntityDecoder($name);
         $this->desc = UtilsHelper::applyHtmlEntityDecoder($desc);

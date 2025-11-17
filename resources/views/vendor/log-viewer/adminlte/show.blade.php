@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-2">
             {{-- Log Menu --}}
-            <x-adminlte-card title="Levels" icon="fa fa-fw fa-flag" theme="dark" theme-mode="outline" body-class="p-0">
+            <x-adminlte-card title="Levels" icon="fa-solid fa-flag fa-fw" theme="dark" theme-mode="outline" body-class="p-0">
                 <div class="list-group list-group-flush log-menu">
                     @foreach($log->menu() as $levelKey => $item)
                         @if ($item['count'] === 0)
@@ -27,10 +27,10 @@
             <x-adminlte-card title="Log [{{ $log->date }}]" theme="dark" theme-mode="outline">
                 <x-slot name="toolsSlot">
                     <a href="{{ route('log-viewer::logs.download', [$log->date]) }}" class="btn btn-xs btn-success">
-                        <i class="fas fa-download"></i> @lang('Download')
+                        <i class="fa-solid fa-download"></i> @lang('Download')
                     </a>
                     <a href="#delete-log-modal" class="btn btn-xs btn-danger" data-toggle="modal">
-                        <i class="fas fa-trash"></i> @lang('Delete')
+                        <i class="fa-solid fa-trash"></i> @lang('Delete')
                     </a>
                 </x-slot>
 
@@ -63,11 +63,11 @@
                                 <div class="input-group-append">
                                     @unless (is_null($query))
                                         <a href="{{ route('log-viewer::logs.show', [$log->date]) }}" class="btn btn-secondary">
-                                            (@lang(':count results', ['count' => $entries->count()])) <i class="fa fa-fw fa-times"></i>
+                                            (@lang(':count results', ['count' => $entries->count()])) <i class="fa-solid fa-xmark fa-fw"></i>
                                         </a>
                                     @endunless
                                     <button id="search-btn" class="btn btn-primary">
-                                        <span class="fa fa-fw fa-search"></span>
+                                        <span class="fa-solid fa-magnifying-glass fa-fw"></span>
                                     </button>
                                 </div>
                             </div>
@@ -124,14 +124,14 @@
                                             @if ($entry->hasStack())
                                                 <a class="btn btn-xs btn-default text-nowrap m-1" role="button" data-toggle="collapse"
                                                    href="#log-stack-{{ $key }}" aria-expanded="false" aria-controls="log-stack-{{ $key }}">
-                                                    <i class="fas fa-toggle-on"></i> @lang('Stack')
+                                                    <i class="fa-solid fa-toggle-on"></i> @lang('Stack')
                                                 </a>
                                             @endif
 
                                             @if ($entry->hasContext())
                                                 <a class="btn btn-xs btn-default text-nowrap m-1" role="button" data-toggle="collapse"
                                                    href="#log-context-{{ $key }}" aria-expanded="false" aria-controls="log-context-{{ $key }}">
-                                                    <i class="fas fa-toggle-on"></i> @lang('Context')
+                                                    <i class="fa-solid fa-toggle-on"></i> @lang('Context')
                                                 </a>
                                             @endif
                                         </td>

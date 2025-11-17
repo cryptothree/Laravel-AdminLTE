@@ -4,13 +4,13 @@
     <a class="nav-link {{ $item['class'] }} @isset($item['shift']) {{ $item['shift'] }} @endisset"
        href="" {!! $item['data-compiled'] ?? '' !!}>
 
-        <i class="nav-icon {{ $item['icon'] ?? 'far fa-fw fa-circle' }} {{
+        <i class="nav-icon {{ $item['icon'] ?? 'fa-regular fa-circle fa-fw' }} {{
             isset($item['icon_color']) ? 'text-'.$item['icon_color'] : ''
         }}"></i>
 
         <p>
             {{ $item['text'] }}
-            <i class="fas fa-angle-left right"></i>
+            <i class="fa-solid fa-angle-left right"></i>
 
             @isset($item['label'])
                 <span class="badge badge-{{ $item['label_color'] ?? 'primary' }} right">

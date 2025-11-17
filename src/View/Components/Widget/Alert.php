@@ -13,14 +13,14 @@ class Alert extends Component
      * @var array
      */
     protected $icons = [
-        'dark' => 'fas fa-bolt',
-        'light' => 'far fa-lightbulb',
-        'primary' => 'fas fa-bell',
-        'secondary' => 'fas fa-tag',
-        'info' => 'fas fa-info-circle',
-        'success' => 'fas fa-check-circle',
-        'warning' => 'fas fa-exclamation-triangle',
-        'danger' => 'fas fa-ban',
+        'dark' => 'fa-solid fa-bolt',
+        'light' => 'fa-regular fa-lightbulb',
+        'primary' => 'fa-solid fa-bell',
+        'secondary' => 'fa-solid fa-tag',
+        'info' => 'fa-solid fa-circle-info',
+        'success' => 'fa-solid fa-circle-check',
+        'warning' => 'fa-solid fa-triangle-exclamation',
+        'danger' => 'fa-solid fa-ban',
     ];
 
     /**

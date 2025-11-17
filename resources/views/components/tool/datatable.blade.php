@@ -18,9 +18,9 @@
         {{ $filter }}
 
         <div class="btn-group mb-3">
-            <x-adminlte-button type="button" theme="default" icon="fas fa-search" data-action="search" />
-            <x-adminlte-button type="button" theme="default" icon="fas fa-eraser" data-action="reset" />
-            <x-adminlte-button type="button" theme="default" icon="fas fa-sync-alt" data-action="refresh" />
+            <x-adminlte-button type="button" theme="default" icon="fa-solid fa-magnifying-glass" data-action="search" />
+            <x-adminlte-button type="button" theme="default" icon="fa-solid fa-eraser" data-action="reset" />
+            <x-adminlte-button type="button" theme="default" icon="fa-solid fa-rotate" data-action="refresh" />
         </div>
     </div>
 @endisset

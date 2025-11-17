@@ -20,17 +20,17 @@
 
                 {{-- Default tools --}}
                 @isset($maximizable)
-                    <x-adminlte-button theme="tool" data-card-widget="maximize" icon="fas fa-lg fa-expand"/>
+                    <x-adminlte-button theme="tool" data-card-widget="maximize" icon="fa-solid fa-expand fa-lg"/>
                 @endisset
 
                 @if($collapsible === 'collapsed')
-                    <x-adminlte-button theme="tool" data-card-widget="collapse" icon="fas fa-lg fa-plus"/>
+                    <x-adminlte-button theme="tool" data-card-widget="collapse" icon="fa-solid fa-plus fa-lg"/>
                 @elseif(isset($collapsible))
-                    <x-adminlte-button theme="tool" data-card-widget="collapse" icon="fas fa-lg fa-minus"/>
+                    <x-adminlte-button theme="tool" data-card-widget="collapse" icon="fa-solid fa-minus fa-lg"/>
                 @endif
 
                 @isset($removable)
-                    <x-adminlte-button theme="tool" data-card-widget="remove" icon="fas fa-lg fa-times"/>
+                    <x-adminlte-button theme="tool" data-card-widget="remove" icon="fa-solid fa-xmark fa-lg"/>
                 @endisset
 
             </div>
@@ -55,7 +55,7 @@
     {{-- Card overlay --}}
     @if($disabled)
         <div class="overlay">
-            <i class="fas fa-2x fa-ban text-gray"></i>
+            <i class="fa-solid fa-ban fa-2x text-gray"></i>
         </div>
     @endif
 

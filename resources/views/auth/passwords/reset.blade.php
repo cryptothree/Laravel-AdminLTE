@@ -26,7 +26,7 @@
 
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <span class="fas fa-envelope {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                    <span class="fa-solid fa-envelope {{ config('adminlte.classes_auth_icon', '') }}"></span>
                 </div>
             </div>
 
@@ -44,7 +44,7 @@
 
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <span class="fas fa-lock {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                    <span class="fa-solid fa-lock {{ config('adminlte.classes_auth_icon', '') }}"></span>
                 </div>
             </div>
 
@@ -63,7 +63,7 @@
 
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <span class="fas fa-lock {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                    <span class="fa-solid fa-lock {{ config('adminlte.classes_auth_icon', '') }}"></span>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
 
         {{-- Confirm password reset button --}}
         <button type="submit" class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
-            <span class="fas fa-sync-alt"></span>
+            <span class="fa-solid fa-rotate"></span>
             {{ __('adminlte::adminlte.reset_password') }}
         </button>
     </form>

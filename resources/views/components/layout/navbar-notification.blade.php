@@ -29,7 +29,7 @@
                 @isset($dropdownFooterLabel)
                     {{ $dropdownFooterLabel }}
                 @else
-                    <i class="fas fa-lg fa-search-plus"></i>
+                    <i class="fa-solid fa-magnifying-glass-plus fa-lg"></i>
                 @endisset
             </a>
 
