@@ -1,6 +1,6 @@
 <style>
     body {
-        font-family: "Inter", sans-serif;
+        font-family: "Outfit", sans-serif;
     }
 
     .content {
@@ -12,6 +12,10 @@
     .bootstrap-select .btn,
     .bootstrap-select .dropdown-menu {
         font-size: 0.925rem;
+    }
+
+    .nav-sidebar > .nav-item .nav-icon {
+        font-size: 1rem;
     }
 
     .badge {
