@@ -95,10 +95,10 @@
         };
     };
 
-    window.FLASH_MESSAGES = @json(session()->pull('flash_notification', collect())->toArray());
+    window.FLASH_NOTIFICATIONS = @json(session()->pull('flash_notification', collect())->toArray());
 
     $(function () {
-        FLASH_MESSAGES.forEach(notification => {
+        FLASH_NOTIFICATIONS.forEach(notification => {
             noty().show(notification.level, notification.message, notification.important);
         });
     });
