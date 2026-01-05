@@ -64,7 +64,7 @@
             });
 
             // add loading spinner
-            const $submitBtn = $(this).find('button:not(.no-spinner)[type=submit]');
+            const $submitBtn = $(this).find('button:not(.no-loading)[type=submit]');
             if ($submitBtn) {
                 $submitBtn.prop('disabled', true).width($submitBtn.width()).html('<i class="fa-solid fa-spinner fa-spin-pulse"></i>');
             }
