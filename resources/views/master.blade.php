@@ -73,7 +73,7 @@
     @endif
 
     {{-- Custom Stylesheets (post AdminLTE) --}}
-    @include('adminlte::style')
+    @include('adminlte::assets.style')
     @yield('adminlte_css')
 
     {{-- Favicon --}}
@@ -140,7 +140,7 @@
     @endif
 
     {{-- Custom Scripts --}}
-    @include('adminlte::scripts')
+    @include('adminlte::assets.scripts')
     @yield('adminlte_js')
 
 </body>
