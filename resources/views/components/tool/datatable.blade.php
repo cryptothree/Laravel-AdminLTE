@@ -45,7 +45,8 @@
                 switch (action) {
                     case 'search':
                         $filter.find('input[data-column],select[data-column]').each(function () {
-                            dataTable.column($(this).data('column')).search($(this).val());
+                            const smart = $(this).data('smart') ?? false;
+                            dataTable.column($(this).data('column')).search($(this).val(), { smart });
                         });
                         dataTable.draw();
                         break;
