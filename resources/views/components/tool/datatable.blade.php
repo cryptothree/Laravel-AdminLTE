@@ -7,7 +7,7 @@
         }
 
         .datatable-filter > .form-group > .input-group > .form-control {
-            width: 240px !important;
+            width: 200px !important;
         }
     </style>
 @endPushOnce
